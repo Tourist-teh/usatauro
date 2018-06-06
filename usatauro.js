@@ -1,7 +1,21 @@
-﻿window.onkeydown = function(e){
+window.onkeydown = function(e){
 	if( e.keyCode == 13 && e.shiftKey ){
-		w=document.getElementsByTagName("textarea")[0].value,ans="";
-		for(var i=0; i<w.split(" ").length; i++){ans+=w.split(" ")[i].split("").reverse().join("")+" ";} document.getElementsByTagName("textarea")[0].value = ans;
+		t=document.getElementsByTagName("textarea")[0].value,ans="";
+		var ans = "";
+		var tmp = "";
+		for( var i = 0; i < t.length; i++ ){
+			if( t[i] === " " ){
+				ans += tmp.split("").reverse().join("") + " ";
+				tmp = "";
+			}else if( t[i] === '\n' ){
+				ans += tmp.split("\n").reverse().join("\n") + "\n";
+				tmp = "";
+			}else{
+				tmp += t[i];
+			}
+		}
+		ans += tmp.split("").reverse().join("");
+		document.getElementsByTagName("textarea")[0].value = ans;
 		document.getElementsByName("submit")[0].click();
 	}
 }
