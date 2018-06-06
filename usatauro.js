@@ -8,7 +8,7 @@ window.onkeydown = function(e){
 				ans += tmp.split("").reverse().join("") + " ";
 				tmp = "";
 			}else if( t[i] === '\n' ){
-				ans += tmp.split("\n").reverse().join("\n") + "\n";
+				ans += tmp.split("").reverse().join("") + "\n";
 				tmp = "";
 			}else{
 				tmp += t[i];
